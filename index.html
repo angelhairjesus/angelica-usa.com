@@ -1,1 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AngelicaUSA</title>
 
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@300;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="clouds" aria-hidden="true"></div>
+
+  <div class="wrap" role="main">
+    <header>
+      <div class="logo" aria-hidden="true">
+        <h1>ANG.USA</h1>
+      </div>
+
+      <div class="brand" aria-label="Site branding">
+        <div class="title">Angelica</div>
+        <div class="subtitle">MY PROBLEM IS ILL NEVER GO TO HEAVEN</div>
+      </div>
+
+      <div style="flex:1"></div>
+
+      <div class="retro-strip" aria-hidden="true">
+        <!-- Replace GIFs if you like -->
+        <img class="accent-gif" src="https://media.giphy.com/media/3o6ZsWb8m7b6j7Y2DK/giphy.gif" alt="" />
+        <img class="accent-gif" src="https://media.giphy.com/media/11s7Ke7jcNxCHS/giphy.gif" alt="" />
+      </div>
+    </header>
+
+    <div class="grid" aria-live="polite">
+      <!-- About -->
+      <section class="card about" aria-labelledby="aboutHeading">
+        <h2 id="aboutHeading">About AngelicaUSA</h2>
+        <div class="sep" aria-hidden="true"></div>
+        <p>
+          AngelicaUSA is all da media i want to make lul. everyone has an insta page and shit. same idea i just want a space for stuff.
+        </p>
+        <p>
+          Our mission: MAKE ART MAKE MONEY MAKE MEMORIES MAKE TIME ETC
+        </p>
+        <ul>
+          <li>curated writings</li>
+          <li> videos & photos</li>
+          <li>news & stuff</li>
+        </ul>
+      </section>
+
+      <!-- Signup + Video -->
+      <aside class="card">
+        <div class="signup" aria-labelledby="joinHeading">
+          <h3 id="joinHeading">join da email</h3>
+          <p>im gonna harass u lul</p>
+
+          <!-- Replace with your Formspree endpoint -->
+          <form id="signupForm" action="https://formspree.io/f/your-form-id" method="POST" novalidate>
+            <label for="emailInput" class="sr-only">Email address</label>
+            <input id="emailInput" type="email" name="email" placeholder="your@email.com" required />
+            <button type="submit">Sign Up</button>
+            <div class="success" id="successMessage">Thanks — check your inbox!</div>
+          </form>
+
+          <div class="note">i will sell your email. Unsubscribe neverrrrrrr</div>
+        </div>
+
+        <div class="video-wrap">
+          <h3>watch my life</h3>
+          <div class="tv-frame">
+            <div class="tv-bezel">
+              <!-- Replace VIDEO_ID with your actual YouTube ID -->
+              <iframe src="https://youtu.be/X6Z3k9eo5qA?si=ReZqeFM2enjpXCR-"
+                      title="Angelica video player"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen></iframe>
+            </div>
+          </div>
+          <div class="tv-controls">
+            <div>▶️ Retro Play</div>
+            <div>• 3:42 • HD</div>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <footer>
+      <div>© <strong>AngelicaUSA</strong> — Built with modern HTML5</div>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
