@@ -3,88 +3,84 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>AngelicaUSA</title>
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@300;700&display=swap" rel="stylesheet">
-
+  <title>Angelica — Rotary Modal</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="clouds" aria-hidden="true"></div>
+  <main class="page" aria-live="polite">
+    <div class="rotary-area" aria-label="Rotary navigation">
+      <!-- SVG arms (visual connectors) -->
+      <svg class="arms" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+        <path d="M200 200 C200 120, 120 100, 80 60" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.6"/>
+        <path d="M200 200 C280 120, 320 100, 360 60" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.6"/>
+        <path d="M200 200 C280 280, 320 300, 360 340" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.6"/>
+        <path d="M200 200 C120 280, 80 300, 40 340" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.6"/>
+      </svg>
 
-  <div class="wrap" role="main">
-    <header>
-      <div class="logo" aria-hidden="true">
-        <h1>ANGELICA-USA.com</h1>
-      </div>
-
-      <div class="brand" aria-label="Site branding">
-        <div class="title">AngelicaUSA</div>
-        <div class="subtitle">MY PROBLEM IS ILL NEVER GO TO HEAVEN</div>
-      </div>
-
-      <div style="flex:1"></div>
-
-      <div class="retro-strip" aria-hidden="true">
-  
-      <section class="card about" aria-labelledby="aboutHeading">
-        <h2 id="aboutHeading">About AngelicaUSA</h2>
-        <div class="sep" aria-hidden="true"></div>
-        <p>
-          AngelicaUSA is all da media i want to make lul. everyone has an insta page and shit. same idea i just want a space for stuff.
-        </p>
-        <p>
-          Our mission: MAKE ART MAKE MONEY MAKE MEMORIES MAKE TIME ETC
-        </p>
-        <ul>
-          <li>curated writings</li>
-          <li> videos & photos</li>
-          <li>news & stuff</li>
-        </ul>
-      </section>
-
-      <!-- Signup + Video -->
-      <aside class="card">
-        <div class="signup" aria-labelledby="joinHeading">
-          <h3 id="joinHeading">join da email</h3>
-          <p>im gonna harass u lul</p>
-
-          <!-- Replace with your Formspree endpoint -->
-          <form id="signupForm" action="https://formspree.io/f/your-form-id" method="POST" novalidate>
-            <label for="emailInput" class="sr-only">Email address</label>
-            <input id="emailInput" type="email" name="email" placeholder="your@email.com" required />
-            <button type="submit">Sign Up</button>
-            <div class="success" id="successMessage">Thanks — check your inbox!</div>
-          </form>
-
-          <div class="note">i will sell your email. Unsubscribe neverrrrrrr</div>
+      <!-- Dial (rotates) -->
+      <div class="dial-wrapper" role="application" aria-label="rotary dial area">
+        <div class="dial" id="dial" role="tablist" aria-label="rotary dial">
+          <button class="hole" data-index="0" aria-controls="media-modal" aria-label="Media">Media</button>
+          <button class="hole" data-index="1" aria-controls="news-modal" aria-label="News">News</button>
+          <button class="hole" data-index="2" aria-controls="about-modal" aria-label="About">About</button>
+          <button class="hole" data-index="3" aria-controls="contact-modal" aria-label="Contact">Contact</button>
         </div>
-
-        <div class="video-wrap">
-          <h3>watch my life</h3>
-          <div class="tv-frame">
-            <div class="tv-bezel">
-              <!-- Replace VIDEO_ID with your actual YouTube ID -->
-              <iframe src="https://www.youtube.com/embed/X6Z3k9eo5qA?si=duDnk9LoS5LZezt7" 
-                      title="Angelica video player"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen></iframe>
-            </div>
-          </div>
-          <div class="tv-controls">
-            <div>▶️ ANGELHAIRJESUS</div>
-            <div>• 2:24 • HD</div>
-          </div>
-        </div>
-      </aside>
+      </div>
     </div>
+  </main>
 
-    <footer>
-      <div>© <strong>AngelicaUSA</strong> — Built with modern HTML5</div>
-    </footer>
+  <!-- Modals (hidden by default). Content is injected/loaded on open. -->
+  <div class="modal-backdrop hidden" id="backdrop" aria-hidden="true"></div>
+
+  <!-- Media Modal -->
+  <div class="modal hidden" id="media-modal" role="dialog" aria-modal="true" aria-labelledby="mediaTitle">
+    <div class="modal-inner">
+      <header>
+        <h2 id="mediaTitle">Media</h2>
+        <button class="modal-close" data-close aria-label="Close media">✕</button>
+      </header>
+      <div class="modal-body" id="mediaContent">
+        <!-- iframe inserted by JS when modal opens -->
+        <div class="loader">Loading video…</div>
+      </div>
+    </div>
   </div>
 
-  <script src="script.js"></script>
+  <!-- Contact Modal -->
+  <div class="modal hidden" id="contact-modal" role="dialog" aria-modal="true" aria-labelledby="contactTitle">
+    <div class="modal-inner">
+      <header>
+        <h2 id="contactTitle">Contact / Sign up</h2>
+        <button class="modal-close" data-close aria-label="Close contact">✕</button>
+      </header>
+      <div class="modal-body" id="contactContent">
+        <!-- form will be injected or available immediately -->
+        <form id="contactForm" action="https://formspree.io/f/xnnzpvvv" method="POST">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="you@example.com" required autocomplete="email" />
+          <div class="form-row">
+            <button type="submit">Submit</button>
+            <button type="button" class="modal-close" data-close>Cancel</button>
+          </div>
+          <div id="formMessage" role="status" aria-live="polite" class="form-message"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Simple placeholder modal for News/About -->
+  <div class="modal hidden" id="generic-modal" role="dialog" aria-modal="true" aria-labelledby="genericTitle">
+    <div class="modal-inner">
+      <header>
+        <h2 id="genericTitle">Coming Soon</h2>
+        <button class="modal-close" data-close aria-label="Close">✕</button>
+      </header>
+      <div class="modal-body">
+        <p>This section will be available soon.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js" defer></script>
 </body>
 </html>
